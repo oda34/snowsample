@@ -12,6 +12,7 @@
 </head>
 <body>
  <script>
+  window.addEventListener('DOMContentLoaded', init);
   var init = function() {
 
     var width = 800,
@@ -134,7 +135,7 @@
     // スケールを調整
     sprite.scale.set(0.5, 0.5, 0.5);
 
-      scene.add(sprite);
+    scene.add(sprite);
 
     //雪だるま
     var snowman = new THREE.Group();
@@ -179,19 +180,16 @@
     // シーンに追加
     scene.add(directionalLight2);
 
-    
-  
-    // 初回実行
-    var update = function() {
-      renderer.render(scene, camera);
-      requestAnimationFrame(update);
-  
-      //snowman.rotation.y += 0.01;
-      
-    };
+    }
     update();
+    // 毎フレーム時に実行されるループイベントです
+        function update() {
+          // レンダリング
+          renderer.render(scene, camera);
+          requestAnimationFrame(update);
+    }
   }
-  window.addEventListener('DOMContentLoaded', init);
+  
 </script>
 </body>
 </html>
