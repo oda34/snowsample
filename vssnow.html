@@ -119,6 +119,23 @@
     lhand2.rotation.z=-0.5
     lhand2.position.set( 2, 0.75, 5);
 
+    // 木をスプライトで作成
+    var textureLoader = new THREE.TextureLoader();  
+    var texture = textureLoader.load("sinnyouzyu.png");
+    const material = new THREE.SpriteMaterial({ map: texture,});
+
+    // 森を作成
+    for (let i = 0; i < 30; i++) {
+    const sprite = new THREE.Sprite(material);
+    // ランダムな座標に配置
+    sprite.position.x = 2 * (Math.random() - 0.5);
+    sprite.position.y = 0.5 * Math.random();
+    sprite.position.z = 2 * (Math.random() - 0.5);
+    // スケールを調整
+    sprite.scale.set(0.5, 0.5, 0.5);
+
+      scene.add(sprite);
+
     //雪だるま
     var snowman = new THREE.Group();
     snowman.add(snowface); // 頭を追加
