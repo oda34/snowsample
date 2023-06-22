@@ -34,30 +34,28 @@
 
     const controls = new THREE.OrbitControls(camera, document.body);
 
+    //雪のテクスチャ
+    var textureLoader = new THREE.TextureLoader();  
+    var texture = textureLoader.load("white_00132.jpg");
+    var mat = new THREE.MeshPhongMaterial();
+    mat.map = texture;
+
     //胴体
     var sphereGeometry = new THREE.SphereGeometry( 2, 32, 32 ); 
     //半径、垂直方向の分割数、水平方向の分割数
     var sphereMaterial = new THREE. MeshPhongMaterial( {color: 0xffffff} );
-    var snowbody = new THREE.Mesh( sphereGeometry, sphereMaterial );
+    var snowbody = new THREE.Mesh( sphereGeometry, mat );
     snowbody.position.set( 0, 0, -5 );
-    var snowbody2 = new THREE.Mesh( sphereGeometry, sphereMaterial );
+    var snowbody2 = new THREE.Mesh( sphereGeometry, mat);
     snowbody2.position.set( 0, 0, 5 );
-
-    //胴体
-    //var sphereGeometry = new THREE.SphereGeometry( 2, 32, 32 ); 
-    //半径、垂直方向の分割数、水平方向の分割数
-    //var sphereMaterial = new THREE. MeshPhongMaterial( {color: 0xffffff} );
-    //var snowbody2 = new THREE.Mesh( sphereGeometry, sphereMaterial );
-    //snowbody2.position.set( 5, 0, 0 );
- 
 
     //顔
     var sphereGeometry = new THREE.SphereGeometry( 1, 32, 32 ); 
     //半径、垂直方向の分割数、水平方向の分割数
     var sphereMaterial = new THREE. MeshPhongMaterial( {color: 0xffffff} );
-    var snowface = new THREE.Mesh( sphereGeometry, sphereMaterial );
+    var snowface = new THREE.Mesh( sphereGeometry, mat );
     snowface.position.set( 0, 2.5, -5 );
-    var snowface2 = new THREE.Mesh( sphereGeometry, sphereMaterial );
+    var snowface2 = new THREE.Mesh( sphereGeometry, mat);
     snowface2.position.set( 0, 2.5, 5 );
 
     //左目
