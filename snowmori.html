@@ -70,6 +70,12 @@
     var mat3 = new THREE.MeshPhongMaterial();
     mat3.map = texture;
 
+    //地面のテクスチャ
+    var textureLoader = new THREE.TextureLoader();  
+    var texture = textureLoader.load("green_00116.jpg");
+    var mat = new THREE.MeshPhongMaterial();
+    mat4.map = texture;
+
     //胴体
     var sphereGeometry = new THREE.SphereGeometry( 2, 32, 32 ); 
     //半径、垂直方向の分割数、水平方向の分割数
@@ -161,9 +167,8 @@
 
     // 平面を作成
     var planeGeometry = new THREE.PlaneGeometry(30,30);
-    //var planeMaterial = new THREE.MeshBasicMaterial({color: 0x00ff00});
     var planeMaterial = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
-    var plane2 = new THREE.Mesh(planeGeometry,planeMaterial);
+    var plane2 = new THREE.Mesh(planeGeometry,mat4);
     plane2.rotation.set( -Math.PI/2, 0, 0 );
     plane2.position.set(0,-1.5,-2);
     scene.add(plane2);
