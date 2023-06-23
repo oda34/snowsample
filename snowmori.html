@@ -79,7 +79,7 @@
     //胴体
     var sphereGeometry = new THREE.SphereGeometry( 2, 32, 32 ); 
     //半径、垂直方向の分割数、水平方向の分割数
-    var sphereMaterial = new THREE. MeshPLambertMaterial( {color: 0xffffff} );
+    var sphereMaterial = new THREE. MeshLambertMaterial( {color: 0xffffff} );
     var snowbody = new THREE.Mesh( sphereGeometry, mat );
     snowbody.position.set( 0, 0, -5 );
     var snowbody2 = new THREE.Mesh( sphereGeometry, mat);
