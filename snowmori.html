@@ -56,6 +56,23 @@
       scene.add(sprite);
      }
 
+    //体力バーをスプライトで作成
+    var textureLoader = new THREE.TextureLoader();  
+    var texture2 = textureLoader.load("greenHP.png");
+    const material2 = new THREE.SpriteMaterial({ map: texture2,});
+
+    var textureLoader = new THREE.TextureLoader();  
+    var texture3 = textureLoader.load("redHP.png");
+    const material3 = new THREE.SpriteMaterial({ map: texture3,});
+
+    const sprite2=new THREE.Sprite(material2);
+    splite2.position.set(0,4,5);
+    scene.add(sprite2);
+
+    const sprite3=new THREE.Sprite(material3);
+    splite3.position.set(0,4,-5);
+    scene.add(sprite3);
+
     //雪のテクスチャ
     var textureLoader = new THREE.TextureLoader();  
     var texture = textureLoader.load("white_00113.jpg");
@@ -79,6 +96,7 @@
     var texture = textureLoader.load("green_00116.jpg");
     var mat4 = new THREE.MeshPhongMaterial();
     mat4.map = texture;
+
 
     //胴体
     var sphereGeometry = new THREE.SphereGeometry( 2, 32, 32 ); 
