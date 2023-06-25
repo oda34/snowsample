@@ -225,9 +225,14 @@
       rhand2.rotation.z+=rs;
       lhand2.rotation.z+=rs*-1;
 
-      setInterval(()=>{
-        rs*=-1;
-      },1000);
+      var currentTime = Date.now();
+      var elapsedTime = currentTime - startTime;
+      var interval = 800; // 回転の向きを変える間隔（ミリ秒）
+
+      if (elapsedTime >= interval) {
+        rs *= -1;
+        startTime = currentTime;
+      }
 
       rot += 0.1;
       
@@ -237,6 +242,7 @@
       camera.lookAt(new THREE.Vector3(0, 0, 0));
       
     };
+    var startTime = Date.now();
     update();
   }
   window.addEventListener('DOMContentLoaded', init);
