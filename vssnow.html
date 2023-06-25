@@ -170,14 +170,23 @@
     // シーンに追加
     scene.add(directionalLight2);
 
-    
+    let rs=0.01
   
     // 初回実行
     var update = function() {
       renderer.render(scene, camera);
       requestAnimationFrame(update);
   
-      //snowman.rotation.y += 0.01;
+      rhand.rotation.z += rs;
+      lhand.rotation.z+=rs*-1;
+      rhand2.rotation.z+=rs;
+      lhand2.rotation.z+=rs*-1;
+
+      setInterval(()=>{
+        rs*=-1;
+      },800);
+
+      rot += 0.1;
       
     };
     update();
